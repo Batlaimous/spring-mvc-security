@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>LogIn</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 
 <h2> Please enter your username and password</h2>
 
 <form method="POST" action="#" th:action="@{/authenticateTheUser}">
+    <!-- Check for login error -->
+    <div th:if="${param.error}">
+       <i class = "error"> Sorry! you entered invalid username/password. </i>
+    </div>
 <p>
 User name: <input type="text" name="username"/>
 </p>
